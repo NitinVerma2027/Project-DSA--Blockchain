@@ -6,7 +6,7 @@
 }
 
 body {
-    background: linear-gradient(to bottom right, #6334c9, #a64ee0); /* purple to orange gradient */
+    background: linear-gradient(to bottom right, #283048, #859398);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,7 @@ body {
     width: 100%;
     max-width: 400px;
     margin: 20px;
-    background-color: #e7e6efdb;
+    background-color: #939eac;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
@@ -42,7 +42,7 @@ h2 {
 label {
     margin-bottom: 6px;
     display: block;
-    color: #212020e5;
+    color: #0b0909f6;
 }
 
 input {
