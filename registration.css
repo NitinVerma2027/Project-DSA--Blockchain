@@ -6,7 +6,7 @@
 }
 
 body {
-    background: linear-gradient(to bottom right, #007BFF, #A0D6FF); /* Bright Blue to light blue gradient */
+    background: linear-gradient(to bottom right, #6334c9, #a64ee0); /* Bright Blue to light blue gradient */
     display: flex;
     justify-content: center;
     align-items: center;
