@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Page</title>
+    <link rel="stylesheet" href="voting.css"> 
+</head>
+<body>
+    <h2>Voting Page</h2>
+    <table>
+        <tr>
+            <th>Select Candidate</th>
+        </tr>
+        <tr>
+            <td><input type="radio" name="candidate" value="1">Candidate A</td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="candidate" value="2">Candidate B</td>
+        </tr>
+        <tr>
+            <td><input type="radio" name="candidate" value="3">Candidate C</td>
+        </tr>
+    </table>
+
+    <p>Type "vote" to confirm your vote:</p>
+    <input type="text" id="voteConfirmation" placeholder="Enter 'vote' to confirm">
+    <button id="submitVote">Submit Vote</button>
+
+    <div id="confirmation" style="display: none;">
+        <p>You selected: <span id="selectedCandidate"></span></p>
+        <button id="confirmVote">Confirm Vote</button>
+    </div>
+
+</body>
+</html>
