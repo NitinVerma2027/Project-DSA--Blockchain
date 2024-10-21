@@ -4,101 +4,103 @@
 #include <functional>
 #include <sstream>
 #include <iomanip>
-#include <algorithm> // Include this for std::find
+#include <algorithm>
+
+using namespace std;
 
 class MerkleTree {
 public:
     MerkleTree() : root("") {}
 
     // Function to add a vote
-    void addVote(const std::string& vote) {
+    void addVote(const string& vote) {
         votes.push_back(vote);
-        std::cout << "Adding vote: " << vote << std::endl;
+        cout << "Adding vote: " << vote << endl;
         rebuildTree();
-        std::cout << "Current Merkle Root after adding vote: " << root << std::endl;
+        cout << "Current Merkle Root after adding vote: " << root << endl;
     }
 
     // Function to remove a vote
-    void removeVote(const std::string& vote) {
-        auto it = std::find(votes.begin(), votes.end(), vote);
+    void removeVote(const string& vote) {
+        auto it = find(votes.begin(), votes.end(), vote);
         if (it != votes.end()) {
             votes.erase(it);
-            std::cout << "Removing vote: " << vote << std::endl;
+            cout << "Removing vote: " << vote << endl;
             rebuildTree();
         } else {
-            std::cout << "Vote not found: " << vote << std::endl;
+            cout << "Vote not found: " << vote << endl;
         }
     }
 
     // Function to get the current Merkle root
-    std::string getRoot() const {
+    string getRoot() const {
         return root;
     }
 
     // Function to print the votes
     void printVotes() const {
-        std::cout << "Votes: ";
+        cout << "Votes: ";
         for (const auto& vote : votes) {
-            std::cout << vote << " ";
+            cout << vote << " ";
         }
-        std::cout << std::endl;
+        cout << endl;
     }
 
 private:
-    std::vector<std::string> votes; // Store votes
-    std::string root;               // Current Merkle root
+    vector<string> votes; // Store votes
+    string root;         // Current Merkle root
 
     // Function to rebuild the Merkle Tree
     void rebuildTree() {
-        std::vector<std::string> currentLevel = votes;
+        vector<string> currentLevel = votes;
 
-        std::cout << "Building Merkle Tree..." << std::endl;
+        cout << "Building Merkle Tree..." << endl;
 
         // If there is only one vote, hash it and set as root
         if (currentLevel.size() == 1) {
             root = hash(currentLevel.front()); // Set root to the hash of the only vote
-            std::cout << "Only one vote present. Merkle Root is now: " << root << std::endl;
+            cout << "Only one vote present. Merkle Root is now: " << root << endl;
             return;
         }
 
         while (currentLevel.size() > 1) {
-            std::cout << "Current Level: ";
+            cout << "Current Level: ";
             for (const auto& node : currentLevel) {
-                std::cout << node << " ";
+                cout << node << " ";
             }
-            std::cout << std::endl;
+            cout << endl;
 
             // If the number of blocks is odd, carry the last one forward
             if (currentLevel.size() % 2 != 0) {
-                std::cout << "Carrying forward block: " << currentLevel.back() << std::endl;
+                cout << "Carrying forward block: " << currentLevel.back() << endl;
                 currentLevel.push_back(currentLevel.back()); // Duplicate the last block
             }
 
-            std::vector<std::string> nextLevel;
+            vector<string> nextLevel;
             for (size_t i = 0; i < currentLevel.size(); i += 2) {
-                std::string combinedHash = hash(currentLevel[i] + currentLevel[i + 1]);
+                string combinedHash = hash(currentLevel[i] + currentLevel[i + 1]);
                 nextLevel.push_back(combinedHash);
                 // Fixed output line
-                std::cout << "Hashing blocks: " << currentLevel[i] << " + " 
-                          << currentLevel[i + 1] << " -> " << combinedHash << std::endl;
+                cout << "Hashing blocks: " << currentLevel[i] << " + " 
+                     << currentLevel[i + 1] << " -> " << combinedHash << endl;
             }
             currentLevel = nextLevel; // Move to the next level
         }
 
         root = currentLevel.empty() ? "" : currentLevel.front();
-        std::cout << "Merkle Root: " << root << std::endl;
+        cout << "Merkle Root: " << root << endl;
     }
 
     // Simple hash function
-    std::string hash(const std::string& data) {
-        std::hash<std::string> hasher;
+    string hash(const string& data) {
+        std::hash<string> hasher; // Corrected line
         return toHex(hasher(data)); // Convert hash to hexadecimal
     }
 
     // Convert size_t hash to hexadecimal string
-    std::string toHex(size_t hashValue) {
-        std::stringstream ss;
-        ss << std::hex << hashValue; // Convert to hexadecimal
+    string toHex(size_t hashValue) {
+        stringstream ss;
+        ss << hex << hashValue; // Convert to hexadecimal
         return ss.str();
     }
 };
@@ -106,13 +108,13 @@ private:
 int main() {
     MerkleTree votingTree;
 
-    std::string userInput;
+    string userInput;
 
     // Loop to continuously ask for votes
     do {
-        std::string vote;
-        std::cout << "Enter data for vote (or type 'exit' to stop): ";
-        std::getline(std::cin, vote);
+        string vote;
+        cout << "Enter data for vote (or type 'exit' to stop): ";
+        getline(cin, vote);
 
         if (vote == "exit") {
             break; // Exit the loop if user types 'exit'
@@ -125,7 +127,7 @@ int main() {
     votingTree.printVotes();
 
     // Display the final Merkle Root
-    std::cout << "Final Merkle Root: " << votingTree.getRoot() << std::endl;
+    cout << "Final Merkle Root: " << votingTree.getRoot() << endl;
 
     return 0;
 }
