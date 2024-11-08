@@ -1,0 +1,283 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e9ecef; /* Light grey-blue background */
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Page Header */
+h1 {
+  color: #1d3557; /* Dark blue */
+  font-size: 2.2em;
+  margin-bottom: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Main container for each section */
+div {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  margin: 20px;
+  width: 90%;
+  max-width: 600px;
+  transition: transform 0.3s ease;
+}
+
+div:hover {
+  transform: scale(1.02);
+}
+
+/* Authority Peer ID section */
+#authority-peer-id {
+  font-weight: bold;
+  color: #e76f51; /* Salmon color for emphasis */
+  text-align: center; /* Center the text */
+  margin-bottom: 20px; /* Add spacing below the Peer ID text */
+}
+
+/* Confirmation Message Styling */
+#confirmation-message {
+  display: none; /* Hidden by default */
+  color: green; /* Green text color */
+  font-weight: bold; /* Bold text */
+  text-align: center; /* Centered text */
+  margin-bottom: 10px; /* Space below the message */
+  background-color: #e1f7e7; /* Light green background */
+  padding: 10px;
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Style the buttons in the Peer ID section */
+#authority-peer-id button {
+  display: block; /* Make each button a block element */
+  margin: 10px auto; /* Center the button and add vertical spacing */
+  width: 80%; /* Optional: adjust the width of the buttons */
+}
+
+/* Paragraph styling */
+p {
+  font-size: 1.15em;
+  margin-bottom: 15px;
+  text-align: center;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* Button styling */
+button {
+  background-color: #457b9d; /* Deep blue for buttons */
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  width: 100%;
+  max-width: 200px;
+  text-align: center; /* Center the text */
+  display: block; /* Make each button a block element */
+  margin: 10px auto; /* Center the button and add vertical spacing */
+}
+
+button:hover {
+  background-color: #1d3557; /* Darker blue on hover */
+  transform: translateY(-2px);
+}
+
+button:active {
+  background-color: #18334a;
+}
+
+/* Specific button styles for Authority Peer ID section */
+#send-peer-id {
+  background-color: #2a9d8f; /* First button color */
+}
+
+#send-peer-id:hover {
+  background-color: #21867a; /* Darker shade for hover effect */
+}
+
+#sync-blockchain {
+  background-color: #ffb74d; /* Second button color */
+  margin-top: 15px; /* Add margin for spacing */
+}
+
+#sync-blockchain:hover {
+  background-color: #ffa726; /* Darker orange on hover */
+}
+
+/* Styling for the text areas (blockchain and reserve pool display) */
+textarea {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: #f1faee; /* Soft green background for readability */
+  font-family: monospace;
+  resize: vertical;
+  color: #333;
+  font-size: 1em;
+}
+
+/* Section Colors */
+#blockchain-section,
+#show-blockchain {
+  display: block; /* Make the button act as a block element */
+  margin: 0 auto; /* Center-align the button horizontally */
+  text-align: center; /* Ensure text alignment within the button */
+}
+
+#blockchain-section {
+  background-color: #f1f8ff; /* Very light blue to set sections apart */
+}
+
+#show-reserve-pool {
+  display: block; /* Make the button act as a block element */
+  margin: 0 auto; /* Center-align the button horizontally */
+  text-align: center; /* Ensure text alignment within the button */
+}
+
+#reserve-pool-section {
+  background-color: #f1f8ff; /* Very light blue to set sections apart */
+}
+
+#results-section {
+  background-color: #f0f4c3; /* Light green for results section */
+  padding-top: 10px;
+}
+
+h2 {
+  color: #264653; /* Dark green for titles */
+  font-size: 1.6em;
+  margin-bottom: 15px;
+  text-align: center;
+  border-bottom: 2px solid #457b9d; /* Blue underline for emphasis */
+  padding-bottom: 5px;
+  margin-top: 10px;
+}
+
+h3 {
+  color: #264653;
+  font-size: 1.3em;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.vote-count {
+  font-size: 1.1em;
+  color: #333;
+  text-align: center;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+/* Input fields styling */
+input[type="text"],
+input[type="number"] {
+  width: calc(50% - 10px);
+  padding: 10px;
+  margin: 10px 5px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background-color: #fafafa;
+  font-size: 1em;
+}
+
+input::placeholder {
+  color: #aaa;
+}
+
+/* Combined hash button styling */
+#get-hashes-button {
+  width: 100%;
+  max-width: 200px;
+  padding: 10px 20px;
+  background-color: #457b9d; /* Same button color */
+  color: white;
+  font-size: 1em;
+  border-radius: 5px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#get-hashes-button:hover {
+  background-color: #1d3557; /* Darker on hover */
+}
+
+/* Styling for the input fields and button in the vote hash and block number section */
+#vote-hash-input,
+#block-number-input {
+  width: calc(100% - 10px); /* Full width minus margin */
+  padding: 12px; /* Slightly larger padding for better touch target */
+  margin: 10px 0; /* Adjust margin for spacing */
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9; /* Soft background for better readability */
+  font-size: 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+#vote-hash-input::placeholder,
+#block-number-input::placeholder {
+  color: #aaa; /* Light placeholder color */
+}
+
+/* Ensure proper spacing for the entire segment */
+#hash-input-section {
+  margin: 20px 0; /* Add spacing above and below this section */
+  padding: 15px; /* Padding around the section */
+  background-color: #ffffff; /* White background for contrast */
+  border-radius: 10px; /* Round corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+}
+
+/* Responsive design for mobile */
+@media (max-width: 600px) {
+  div {
+    width: 95%;
+    padding: 15px;
+  }
+
+  button {
+    padding: 10px 18px;
+    font-size: 0.95em;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  h2 {
+    font-size: 1.4em;
+  }
+
+  h3 {
+    font-size: 1.2em;
+  }
+}
