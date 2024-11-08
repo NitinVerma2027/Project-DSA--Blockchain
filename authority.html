@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authority Page</title>
+    <link rel="stylesheet" href="authority.css">
+    <script src="https://cdn.jsdelivr.net/npm/peerjs@1.3.1/dist/peerjs.min.js"></script>
+</head>
+
+<body>
+    <h1>Authority Page</h1>
+
+    <!-- Authority Peer ID Display -->
+    <div>
+        <p>Your Authority Peer ID: <span id="authority-peer-id">Generating...</span></p>
+        <p id="confirmation-message">Peer ID has been sent to the server!</p>
+        <button id="send-peer-id">Send Peer ID to Server</button>
+        <button id="end_of_voting">END VOTING</button>
+    </div>
+
+    <!-- Blockchain Display for Authority -->
+    <div>
+        <button id="show-blockchain">Show Blockchain Data</button>
+        <div id="blockchain-section" style="display: none;">
+            <h2>Blockchain Data</h2>
+            <textarea id="blockchain-display-authority" rows="10" cols="50" readonly></textarea>
+        </div>
+    </div>
+
+    <div>
+        <button id="show-reserve-pool">Show Reserve Pool</button>
+        <div id="reserve-pool-section" style="display: none;">
+            <h2>Reserve Pool Data</h2>
+            <textarea id="reserve-pool-display" rows="10" cols="50" readonly></textarea>
+        </div>
+    </div>
+
+    <!-- Voting Results Section -->
+    <div id="results-section" style="margin-top: 20px;">
+        <h2>Voting Results</h2>
+        <div>
+            <h3>Total Votes: <span id="totalVotes">0</span></h3>
+        </div>
+        <div id="candidateA" class="candidate">
+            <h3>Candidate A</h3>
+            <div class="vote-count" id="votesCandidateA">Votes: 0</div>
+        </div>
+        <div id="candidateB" class="candidate">
+            <h3>Candidate B</h3>
+            <div class="vote-count" id="votesCandidateB">Votes: 0</div>
+        </div>
+        <div id="candidateC" class="candidate">
+            <h3>Candidate C</h3>
+            <div class="vote-count" id="votesCandidateC">Votes: 0</div>
+        </div>
+    </div>
+
+    <div id="hash-input-section">
+        <input type="text" id="vote-hash-input" placeholder="Enter vote hash">
+        <input type="number" id="block-number-input" placeholder="Enter block number">
+        <button id="get-hashes-button">Get Combined Hashes</button>
+    </div>
+
+    <script>
+        document.getElementById('get-hashes-button').addEventListener('click', () => {
+            const blockNumber = parseInt(document.getElementById('block-number-input').value);
+            // console.log("block no hai yr : "+blockNumber);
+            const voteHash = document.getElementById('vote-hash-input').value.trim(); // Get the vote hash input
+
+            if (!isNaN(blockNumber) && voteHash) { // Check if both inputs are valid
+                getCombinedHashes(voteHash, blockNumber); // Pass both inputs to the function
+            } else {
+                console.log('Please enter a valid vote hash and block number.');
+            }
+        });
+
+        function getCombinedHashes(voteHash, blockNumber) {
+            // Call the getMerkleProof function with the provided vote hash and block number
+
+            // console.log("block no hai yr : "+blockNumber);
+            getMerkleProof(voteHash, blockNumber);
+
+        }
+
+        document.getElementById('send-peer-id').addEventListener('click', () => {
+            // Code to send the Peer ID to the server goes here
+
+            const messageElement = document.getElementById('confirmation-message');
+            messageElement.style.display = 'block';
+
+            // Hide the message after 3 seconds
+            setTimeout(() => {
+                messageElement.style.display = 'none';
+            }, 3000);
+        });
+
+        // Your getMerkleProof function goes here
+    </script>
+
+    <!-- Main JavaScript file -->
+    <script src="script.js"></script>
+</body>
+
+</html>
