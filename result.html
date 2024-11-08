@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Results</title>
+    <link rel="stylesheet" href="result.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Voting Results</h1>
+        
+        <!-- Voting Results Section -->
+        <div id="voting-results" style="display: none;">
+            <div id="totalVotes" class="result-item"></div>
+            <div id="candidateA" class="result-item"></div>
+            <div id="candidateB" class="result-item"></div>
+            <div id="candidateC" class="result-item"></div>
+        </div>
+
+        <!-- Message for voting not ended -->
+        <div id="notEndedMessage" style="display: none;">
+            <p>Voting has not ended yet. Please wait for the results.</p>
+        </div>
+
+        <!-- Refresh Button -->
+        <div>
+            <button id="refreshButton" class="btn">Refresh Results</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to fetch and display the voting data
+        function fetchVotingResults() {
+            fetch('/votingData.json')  // Fetch the voting data from the JSON file
+                .then(response => {
+                    if (!response.ok) {
+                        // If votingData.json is not found, show the message that voting hasn't ended
+                        document.getElementById('voting-results').style.display = 'none';
+                        document.getElementById('notEndedMessage').style.display = 'block';
+                        return Promise.reject('Voting results not available');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    // If voting data is available, display the results
+                    document.getElementById('totalVotes').textContent = `Total Votes: ${data.totalVotes}`;
+                    document.getElementById('candidateA').textContent = `Candidate A: ${data.candidates.candidateA} votes`;
+                    document.getElementById('candidateB').textContent = `Candidate B: ${data.candidates.candidateB} votes`;
+                    document.getElementById('candidateC').textContent = `Candidate C: ${data.candidates.candidateC} votes`;
+
+                    // Show the results and hide the "not ended" message
+                    document.getElementById('voting-results').style.display = 'block';
+                    document.getElementById('notEndedMessage').style.display = 'none';
+                })
+                .catch(error => {
+                    // Handle errors if any
+                    console.error("Error fetching voting data:", error);
+                });
+        }
+
+        // Call the function when the page loads
+        window.onload = fetchVotingResults;
+
+        // Add event listener for the refresh button
+        document.getElementById('refreshButton').addEventListener('click', fetchVotingResults);
+    </script>
+</body>
+</html>
