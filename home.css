@@ -1,0 +1,67 @@
+/* styles.css */
+
+/* General reset for consistent styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Body styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Container for content */
+body h1, body p {
+    text-align: center;
+}
+
+/* Styling for buttons */
+a {
+    text-decoration: none;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling the page layout */
+body {
+    background: linear-gradient(135deg, #ffffff 0%, #b2e6e4 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #666;
+}
