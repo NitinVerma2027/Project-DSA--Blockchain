@@ -62,14 +62,14 @@ BLOCKCHAIN-VOTING/
 ├── .vscode/                # VS Code configuration files                                                                                                                  
 ├── node_modules/           # Node.js dependencies                                                                                                                        
 ├── public/                 # Public assets for the frontend                                                                                                              
-    ├── authority.css                                                                                                                                                    
-    ├── dashboard.css                                                                                                                                                    
-    ├── home.css                                                                                                                                                         
-    ├── login.css                                                                                                                                                        
-    ├── registration.css                                                                                                                                                 
-    ├── result.css                                                                                                                                                       
-    ├── voting.css                                                                                                                                                       
-    └── script.js           # Main JavaScript for frontend logic                                                                                                         
+----├── authority.css                                                                                                                                                    
+----├── dashboard.css                                                                                                                                                    
+----├── home.css                                                                                                                                                         
+----├── login.css                                                                                                                                                        
+----├── registration.css                                                                                                                                                 
+----├── result.css                                                                                                                                                       
+----├── voting.css                                                                                                                                                       
+----└── script.js           # Main JavaScript for frontend logic                                                                                                         
                                                                                                                                                                          
 ├── authority.html          # Authority dashboard page                                                                                                                   
 ├── dashboard.html          # Dashboard page for voters                                                                                                                  
