@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/peerjs@1.3.1/dist/peerjs.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Welcome, <span id="username"></span>!</h2>
+
+        <!-- Section for when the user has already voted -->
+        <div id="votedSection" style="display: none;">
+            <p>You have already voted. Thank you for participating in the election.</p>
+            <p><strong>Vote Hash:</strong> <span id="voteHash"></span></p>
+            <p><strong>Block Number:</strong> <span id="blockNum"></span></p>
+        </div>
+
+        <!-- Section for when the user hasn't voted yet -->
+        <div id="notVotedSection" style="display: none;">
+            <a href="/vote"><button>Go to Voting Page</button></a>
+        </div>
+
+        <a href="/logout"><button>Logout</button></a>
+    </div>
+
+    <div id="authority-peer-id-container">
+        <h4>Authority Peer ID: <span id="authority-id">Loading...</span></h4>
+        <input type="text" id="authority-peer-id" placeholder="Enter Authority Peer ID" required>
+        <button id="connect-authority">Connect to Authority</button>
+    </div>
+
+    <div>
+        <button id="show-blockchain">Show Blockchain Data</button>
+        <div id="blockchain-section" style="display: none;">
+            <h2>Blockchain Data</h2>
+            <textarea id="blockchain-display" rows="10" cols="50" readonly></textarea>
+        </div>
+    </div>
+
+    <!-- this is verification -->
+    <input type="text" id="vote-hash-input" placeholder="Enter vote hash">
+    <input type="number" id="block-number-input" placeholder="Enter block number">
+    <button id="get-hashes-button-dash">Get Combined Hashes</button>
+    </div>
+
+    <!-- Merkle proof display section -->
+    <div id="merkle-proof-section">
+        <h3>Merkle Proof</h3>
+        <p><strong>Vote Hash:</strong> <span id="vote-hash-output"></span></p>
+        <p><strong>Block Number:</strong> <span id="block-number-output"></span></p>
+        <p><strong>Sibling Hash:</strong> <span id="sibling-hash-output"></span></p>
+        <p id="uncle_hash"><strong>Uncle Hash:</strong> <span id="uncle-hash-output"></span></p>
+        <p><strong>Merkle Root:</strong> <span id="merkle-root-output"></span></p>
+    </div>
+
+
+    <script>
+        // Dynamically update content based on voting status
+        const hasVoted = "<%= hasVoted %>";  // This will be passed by the server
+        const username = "<%= username %>";
+
+        document.getElementById('username').textContent = username;
+
+        if (hasVoted === 'true') {
+            document.getElementById('votedSection').style.display = 'block';
+        } else {
+            document.getElementById('notVotedSection').style.display = 'block';
+        }
+        
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

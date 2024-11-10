@@ -1,0 +1,297 @@
+/* General styles for the body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Softer background color for better contrast */
+    margin: 0;
+    padding: 20px;
+    overflow-x: auto; /* Allow horizontal scroll if content overflows */
+}
+
+/* Styles for the container */
+.container {
+    max-width: 800px; /* Maximum width for the container */
+    width: 100%; /* Full width on smaller screens */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Adjust padding for smaller screens */
+    background-color: #ffffff; /* White background for the container */
+    border-radius: 12px; /* More rounded corners for the container */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Slightly deeper shadow for depth */
+    box-sizing: border-box; /* Ensure padding doesn’t exceed viewport width */
+}
+
+/* Styles for the header */
+h2 {
+    color: #333; /* Darker color for the header */
+    text-align: center; /* Center align headers */
+    font-size: 28px; /* Increase header font size */
+    margin-bottom: 25px; /* Space below the header */
+}
+
+/* Styles for the blockchain section header */
+#blockchain-section h2 {
+    font-size: 24px; /* Increase header font size */
+    color: #007bff; /* Consistent color */
+    text-align: center; /* Center the header */
+    margin-bottom: 15px; /* Space below header */
+}
+
+/* Styles for the show blockchain button */
+#show-blockchain {
+    font-size: 18px; /* Button font size */
+    margin: 20px 0; /* Space around the button */
+    padding: 12px 20px; /* More padding */
+    background-color: #28a745; /* Green button color */
+    color: white; /* White text */
+    border: none; /* Remove default border */
+    border-radius: 6px; /* Slightly more rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for hover effect */
+}
+
+#show-blockchain:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly scale up on hover */
+}
+
+/* Styles for the blockchain data display area */
+#blockchain-section {
+    display: none; /* Initially hidden */
+    text-align: center; /* Center text inside */
+}
+
+#blockchain-display {
+    font-size: 16px; /* Font size for the textarea */
+    line-height: 1.5; /* Line height for readability */
+    background-color: #f1faee;
+    border: 1px solid #82ee5e; /* Light border */
+    border-radius: 4px; /* Slightly rounded corners */
+    padding: 10px; /* Padding inside the display area */
+    margin-top: 10px; /* Space above textarea */
+    resize: none; /* Prevent resizing */
+    width: 100%; /* Full width */
+    max-width: 600px; /* Set max width to fit original structure */
+}
+
+/* Styles for the message when user hasn't voted */
+.not-voted-message {
+    font-size: 18px; /* Increase font size */
+    text-align: center; /* Center align the text */
+    margin: 20px 0; /* Space around the message */
+}
+
+#notVotedSection {
+    background-color: #fafafa; /* Light grey background for sections */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside sections */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 20px 0; /* Space between sections */
+}
+
+/* Section styles */
+#votedSection {
+    background-color: #c6daee; /* Light grey background for sections */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside sections */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin: 20px 0; /* Space between sections */
+}
+
+/* Button styles */
+button {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white; /* White text */
+    cursor: pointer; /* Pointer on hover */
+    padding: 12px; /* More padding for buttons */
+    border: none; /* Remove default border */
+    border-radius: 6px; /* Slightly rounded corners */
+    width: 100%; /* Full width on smaller screens */
+    margin-top: 10px; /* Space between buttons */
+    font-size: 16px; /* Keep consistent button font size */
+    transition: background-color 0.3s ease; /* Smooth transition for hover */
+}
+
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Add this to your public CSS file (styles.css) */
+.view-results-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.view-results-container .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.view-results-container .btn:hover {
+    background-color: #45a049;
+}
+
+
+/* Styles for input elements */
+input[type="text"], 
+input[type="number"] {
+    padding: 12px; /* More padding for inputs */
+    font-size: 16px; /* Font size for inputs */
+    width: 100%; /* Full width */
+    margin-top: 10px; /* Space between inputs */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 4px; /* Slightly rounded corners */
+    box-sizing: border-box; /* Ensure padding doesn’t exceed width */
+}
+
+/* Input focus styles for better accessibility */
+input[type="text"]:focus, 
+input[type="number"]:focus {
+    outline: none; /* Remove default outline */
+    border-color: #007bff; /* Change border color on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add shadow on focus */
+}
+
+/* Styles for the success message */
+#successMessage {
+    text-align: center; /* Center the message */
+    margin: 20px 0; /* Space around the message */
+    color: #28a745; /* Success color */
+    font-size: 18px; /* Font size for the success message */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* Less padding on smaller screens */
+    }
+
+    h2 {
+        font-size: 24px; /* Smaller font size for headers */
+    }
+
+    button, input[type="text"], input[type="number"] {
+        font-size: 16px; /* Consistent font size for smaller screens */
+    }
+
+    #blockchain-display {
+        font-size: 14px; /* Smaller font size for textarea on mobile */
+    }
+}
+
+/* Merkle Proof Section - Light and Professional */
+#merkle-proof-section {
+    background-color: #f9f9fc; /* Light, soft background */
+    border: 1px solid #ddd; /* Light border for subtle separation */
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    color: #333; /* Dark text color for readability */
+}
+
+#merkle-proof-section h3 {
+    font-size: 1.75rem;
+    color: #007acc; /* Calming blue color for the heading */
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #007acc; /* Underline effect */
+    padding-bottom: 10px;
+}
+
+#merkle-proof-section p {
+    font-size: 1rem;
+    margin: 12px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #555; /* Softer dark color for text */
+}
+
+#merkle-proof-section p strong {
+    font-weight: 600;
+    color: #007acc; /* Blue color for labels */
+}
+
+#merkle-proof-section span {
+    padding: 5px 12px;
+    background-color: #e8f4fc; /* Light blue background for output values */
+    border-radius: 5px;
+    color: #333;
+    font-weight: bold;
+    min-width: 120px;
+    text-align: right;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #merkle-proof-section {
+        padding: 20px;
+    }
+
+    #merkle-proof-section h3 {
+        font-size: 1.5rem;
+    }
+
+    #merkle-proof-section p {
+        font-size: 0.9rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #merkle-proof-section span {
+        text-align: left;
+        margin-top: 5px;
+    }
+}
+
+/* Full-Width Authority Peer ID Section */
+#authority-peer-id-container {
+    background-color: #f2f8fc; /* Light blue background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    width: 100%; /* Full-width */
+    max-width: none; /* Remove width restriction */
+    box-sizing: border-box; /* Ensure padding doesn’t affect width */
+    margin: 20px 0; /* Spacing above and below */
+}
+
+/* Peer ID Text and Value Inline */
+#authority-id {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Input Field Styling */
+#authority-peer-id {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #007acc;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Button Styling */
+#connect-authority {
+    background-color: #007acc;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+#connect-authority:hover {
+    background-color: #005c99;
+}
