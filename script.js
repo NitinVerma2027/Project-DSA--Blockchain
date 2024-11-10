@@ -86,7 +86,112 @@ function initializePeer() {
 
 /********************************************* functions ****************************************************************/
 
-////  getmerkleproof 
+function getMerkleProof(voteHash, blockNumber) {
+  // Find the block in the blockchain array
+  console.log("ye blockno " + blockNumber);
+  const block = blockchainUsr.find((b) => b.header.blockNumber === blockNumber);
+  console.log("ye blockno " + block);
+
+  if (!block) {
+    console.log(`Block number ${blockNumber} not found.`);
+    return;
+  }
+
+  const merkleTree = block.data.merkleTree;
+  const hashes = block.data.votes;
+
+  // Check if the provided voteHash exists in the votes
+  if(hashes.length > 2){
+    if (!hashes.includes(voteHash)) {
+      console.log(`Vote hash ${voteHash} not found in block ${blockNumber}.`);
+      return;
+    }
+  
+    // Initialize proof object
+    let proof = {
+      siblingHash: null,
+      uncleHash: null,
+      merkleRoot: block.header.merkleRoot,
+    };
+  
+    // Find the index of the vote hash in the votes array
+    let index = hashes.indexOf(voteHash);
+  
+    // Traverse the Merkle tree to find siblings and uncle hashes
+    let currentLevel = 2; // Start from the leaves level (3rd level in this case)
+  
+    const currentLayer = merkleTree[currentLevel].hashes;
+    const parentLayer = merkleTree[currentLevel - 1].hashes;
+  
+    // Determine if index is even or odd
+    const isEven = index % 2 === 0;
+  
+    // Set sibling hash
+    proof.siblingHash = isEven
+      ? currentLayer[index + 1] || null
+      : currentLayer[index - 1] || null;
+  
+    // Calculate parent index and uncle index
+    const parentIndex = Math.floor(index / 2);
+    const uncleIndex = parentIndex ^ 1; // XOR to get the other index
+  
+    proof.uncleHash = parentLayer[uncleIndex] || null;
+  
+    // to show in dashboard
+    document.getElementById("vote-hash-output").textContent = voteHash;
+    document.getElementById("block-number-output").textContent = blockNumber;
+    document.getElementById("sibling-hash-output").textContent =
+      proof.siblingHash;
+    document.getElementById("uncle-hash-output").textContent = proof.uncleHash;
+    document.getElementById("merkle-root-output").textContent = proof.merkleRoot;
+  
+    // Log the proof to the console
+    console.log(
+      `Merkle Proof for vote hash ${voteHash} in block ${blockNumber}:`
+    );
+    console.log(`Sibling Hash: ${proof.siblingHash}`);
+    console.log(`Uncle Hash: ${proof.uncleHash}`);
+    console.log(`Merkle Root: ${proof.merkleRoot}`);
+  }
+  else if(hashes.length > 0 && hashes.length <= 2){
+    if (!hashes.includes(voteHash)) {
+      console.log(`Vote hash ${voteHash} not found in block ${blockNumber}.`);
+      return;
+    }
+
+    // Initialize proof object
+    let proof = {
+      siblingHash: null,
+      merkleRoot: block.header.merkleRoot,
+    };
+
+    // Find the index of the vote hash in the votes array
+    let index = hashes.indexOf(voteHash);
+    let currentLevel = 1; // Start from the leaves level (2nd level in this case)
+  
+    const currentLayer = merkleTree[currentLevel].hashes;
+
+    // Determine if index is even or odd
+    const isEven = index % 2 === 0;
+  
+    // Set sibling hash
+    proof.siblingHash = isEven
+      ? currentLayer[index + 1] || null
+      : currentLayer[index - 1] || null;
+
+    // to show in dashboard
+    document.getElementById("vote-hash-output").textContent = voteHash;
+    document.getElementById("block-number-output").textContent = blockNumber;
+    document.getElementById("sibling-hash-output").textContent =
+      proof.siblingHash;
+    document.getElementById("merkle-root-output").textContent = proof.merkleRoot;
+    document.getElementById("uncle_hash").style.display = 'none';
+  
+  }
+
+  
+
+}
 
 //-------------------------------------------------------------------------------------------------------------------------------
 
