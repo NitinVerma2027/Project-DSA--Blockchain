@@ -55,3 +55,35 @@ Integration with Other Pages:
 The Authority Page interacts with other components of the system, particularly the Voting Pages (such as user registration, peer ID generation, and vote submission) by ensuring that the authority is notified and able to validate votes as they are cast and stored.
 
 
+Note: Follow the below path to create the folder with these files:
+
+BLOCKCHAIN-VOTING/
+├── .vscode/                # VS Code configuration files
+├── node_modules/           # Node.js dependencies
+├── public/                 # Public assets for the frontend
+    ├── authority.css
+    ├── dashboard.css
+    ├── home.css
+    ├── login.css
+    ├── registration.css
+    ├── result.css
+    └── voting.css
+    └── script.js       # Main JavaScript for frontend logic
+
+├── authority.html      # Authority dashboard page
+├── dashboard.html      # Dashboard page for voters
+├── home.html           # Home page
+├── login.html          # Login page
+├── registration.html   # User registration page
+├── result.html         # Page to display voting results
+└── voting.html         # Voting page
+├── data.json               # JSON file storing user data and votes
+├── votingData.json         # JSON file for storing voting-related data
+├── package.json            # Node.js project metadata and scripts
+├── package-lock.json       # Auto-generated dependency tree
+└── server.js               # Server-side code handling blockchain logic 
+
+ 
+
+
+
