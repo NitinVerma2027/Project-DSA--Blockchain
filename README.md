@@ -1,4 +1,5 @@
-# Project-DSA--Blockchain
+# Project-DSA--Blockchain--Based--Voting--System
+
 Creating A DSA Project for our Data structures and Algorithms course based on blockchain technology.
 
 Our decentralized voting system is designed to uphold transparency and security throughout the entire voting process. By leveraging blockchain technology, each vote is securely recorded and verified, ensuring that all data remains immutable and accessible for public verification. The system assigns unique Peer IDs to both the authority and participants, creating a peer-to-peer network that prevents any form of manipulation or tampering with the votes. Furthermore, the use of Merkle trees, along with public access to blockchain data and the reserve pool, allows for real-time monitoring and auditing of the voting process, guaranteeing the integrity and openness of the election.
