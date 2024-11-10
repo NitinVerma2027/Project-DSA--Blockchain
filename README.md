@@ -59,10 +59,10 @@ The Authority Page interacts with other components of the system, particularly t
 Note: Follow the below path to create the folder with these files:
 
 BLOCKCHAIN-VOTING/
-├── .vscode/                # VS Code configuration files
-├── node_modules/           # Node.js dependencies
-├── public/                 # Public assets for the frontend
-    ├── authority.css
+├── .vscode/                # VS Code configuration files                                                                                                                                                            
+├── node_modules/           # Node.js dependencies                                                                                                                                                                   
+├── public/                 # Public assets for the frontend ---------------------------------------------------------------------------------------------------------------------------------------------------------
+    ├── authority.css 
     ├── dashboard.css
     ├── home.css
     ├── login.css
@@ -83,43 +83,4 @@ BLOCKCHAIN-VOTING/
 ├── package.json            # Node.js project metadata and scripts
 ├── package-lock.json       # Auto-generated dependency tree
 └── server.js               # Server-side code handling blockchain logic 
-
- 
-
-Blockchain Voting System
-This project is a blockchain-based voting system that ensures secure and verifiable voting. Below is the project folder structure and a brief description of each part.
-
-Project Structure
-Main Directories and Files
-.vscode/ - Configuration files for Visual Studio Code.
-node_modules/ - Node.js dependencies.
-public/ - Contains frontend assets (HTML, CSS, JavaScript).
-public/ Directory (Frontend)
-CSS Files:
-
-authority.css - Styles for the authority dashboard.
-dashboard.css - Styles for the voter dashboard.
-home.css - Styles for the home page.
-login.css - Styles for the login page.
-registration.css - Styles for the registration page.
-result.css - Styles for the results page.
-voting.css - Styles for the voting page.
-JavaScript:
-
-script.js - Contains frontend logic and event handling.
-HTML Files:
-
-authority.html - Dashboard page for election authorities.
-dashboard.html - Dashboard page for voters.
-home.html - Home or landing page of the application.
-login.html - Login page for users.
-registration.html - New user registration page.
-result.html - Displays voting results.
-voting.html - Voting page for users to cast their vote.
-Root Files
-data.json - Stores user data and votes.
-votingData.json - Stores vote-specific data for blockchain verification.
-package.json - Project metadata, dependencies, and scripts for Node.js.
-package-lock.json - Auto-generated file recording the exact dependency tree for consistent installations.
-server.js - Server-side code handling blockchain logic, vote verification, and Merkle proof generation.
 
